@@ -18,9 +18,26 @@ export default function TextForm(props) {
         setText(newText)
     }
 
+    const handleclickclear = ()=>{
+         setText('')
+     }
+
+     const handleCopyAll = ()=>{
+            var text = document.getElementById("myBox") //id thi text layine text variable ma nakhse
+            text.select();  //then badha text select thay jase aa method thi
+            navigator.clipboard.writeText(text.value) //ana thi badhi value copy thay jase.
+     }
+
+     const removeextraspaces = ()=>{
+        var newText1 = text.split(/[ ]+/);  //this is firstly create the arraay and we have to split the text with the extra spaces. 
+        setText(newText1.join(" ")) //after remove the extra spaces then you have to join the text and set the text.
+    }
+    
     const handleonchange = (event)=>{
         setText(event.target.value)
     }
+
+    
 
 
     const [text , setText] = useState('');
@@ -36,6 +53,13 @@ export default function TextForm(props) {
         </div>
        <button className='btn btn-primary mx-2' onClick={handleUPclick}>Convert To uppertext</button>
        <button className='btn btn-primary mx-2' onClick={handleLoclick}>Convert To Lowertext</button>
+       <button className='btn btn-primary mx-2' onClick={handleclickclear}>Clear</button>
+        <button className='btn btn-primary mx-2' onClick={handleCopyAll}>Copy</button>
+        <button className='btn btn-primary mx-2' onClick={removeextraspaces}>delete extra spaces</button>
+
+
+
+
 
     </div>
 

@@ -10,12 +10,14 @@ export default function TextForm(props) {
      //   console.log("upper case was clicked."+ text)
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("converted into the uppercase");
     }
 
     const handleLoclick = ()=>{
        // console.log("lower case was clicked."+ text)
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("converted into the lowercase");
     }
 
     const handleclickclear = ()=>{
@@ -46,10 +48,11 @@ export default function TextForm(props) {
 
   return (
     <>
-    <div className='container'>
+    <div className='container' style={{color : props.mode==='dark'? 'white' : '#042743'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
-        <textarea className="form-control"  value={text} id="myBox" rows="8" onChange={handleonchange}></textarea>
+        <textarea className="form-control"  value={text} id="myBox" rows="8" style={{backgroundColor : props.mode==='dark'? 'gray' : 'white',
+         color: props.mode==='dark'? 'white' : '#042743'}} onChange={handleonchange}></textarea>
         </div>
        <button className='btn btn-primary mx-2' onClick={handleUPclick}>Convert To uppertext</button>
        <button className='btn btn-primary mx-2' onClick={handleLoclick}>Convert To Lowertext</button>
@@ -63,13 +66,14 @@ export default function TextForm(props) {
 
     </div>
 
-    <div className='container my-3'>
+    <div className='container my-3' style={{color : props.mode==='dark'? 'white' : '#042743'}}>
         <h2>Your text Summery</h2>
         <p>{text.split(" ").length} words  and {text.length} characters</p>
         <p> {0.008 * text.split(" ").length} minutes to read </p>
+    
+    <h2>Preview </h2>
+    <p>{text.length>0?text:"please enter some text to preview.."}</p>
     </div>
-    <h2>Preview</h2>
-    <p>{text}</p>
     </>
   )
 }

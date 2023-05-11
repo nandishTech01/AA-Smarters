@@ -10,29 +10,32 @@ export default function TextForm(props) {
      //   console.log("upper case was clicked."+ text)
         let newText = text.toUpperCase();
         setText(newText)
-        props.showAlert("converted into the uppercase");
+        props.showAlert("converted into the uppercase","success");
     }
 
     const handleLoclick = ()=>{
        // console.log("lower case was clicked."+ text)
         let newText = text.toLowerCase();
         setText(newText)
-        props.showAlert("converted into the lowercase");
+        props.showAlert("converted into the lowercase","success");
     }
 
     const handleclickclear = ()=>{
          setText('')
+         props.showAlert("clear all text successfully","success");
      }
 
      const handleCopyAll = ()=>{
             var text = document.getElementById("myBox") //id thi text layine text variable ma nakhse
             text.select();  //then badha text select thay jase aa method thi
             navigator.clipboard.writeText(text.value) //ana thi badhi value copy thay jase.
+            props.showAlert("copied to clipboard.","success");
      }
 
      const removeextraspaces = ()=>{
         var newText1 = text.split(/[ ]+/);  //this is firstly create the arraay and we have to split the text with the extra spaces. 
         setText(newText1.join(" ")) //after remove the extra spaces then you have to join the text and set the text.
+        props.showAlert("Removed Extra Spaces..","success");
     }
     
     const handleonchange = (event)=>{

@@ -1,11 +1,13 @@
 import './App.css';
 import React, { useState } from 'react' //imrs
-//import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+   
 
-function App() {
+export function App() {
 
   //https://www.makeuseof.com/how-to-add-dark-mode-to-a-react-application/
   const [modeColor, setModeColor] = useState('light');//whether dark mode is on or not? toggleMode
@@ -39,15 +41,17 @@ function App() {
 
   return (
     <>
-    <Navbar title= "AA Smarter" mode={modeColor} toggleMode={toggleMode} />
-    <Alert alert={alert}/>
-    <div className='container my=3'>
-    <TextForm showAlert={showAlert} heading="Enter the text for the Analysis."  mode={modeColor}/>
-    <About />
-    </div>
-
-  
-
+ 
+ <Router>
+      <Navbar title="AA Smarter" mode={modeColor} toggleMode={toggleMode} />
+      <Alert alert={alert} />
+      <div className="container my-3">
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter the text for the Analysis." mode={modeColor} />} />
+        </Routes>
+      </div>
+    </Router>
       </>
   );
 }

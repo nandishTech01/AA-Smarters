@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AA-Smarters/static/css/main.073c9b0a.css",
+    "main.js": "/AA-Smarters/static/js/main.f957274a.js",
+    "static/js/787.28cb0dcd.chunk.js": "/AA-Smarters/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/AA-Smarters/index.html",
+    "main.073c9b0a.css.map": "/AA-Smarters/static/css/main.073c9b0a.css.map",
+    "main.f957274a.js.map": "/AA-Smarters/static/js/main.f957274a.js.map",
+    "787.28cb0dcd.chunk.js.map": "/AA-Smarters/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.f957274a.js"
+  ]
+}

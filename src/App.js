@@ -4,7 +4,7 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
    
 
 export function App() {
@@ -42,16 +42,18 @@ export function App() {
   return (
     <>
  
- <Router>
+ {/* <Router> */}
       <Navbar title="AA Smarter" mode={modeColor} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-3">
-        <Routes>
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text for the Analysis." mode={modeColor} />} />
-        </Routes>
+        {/* <Routes> */}
+          {/* <Route exact path="/about" element={<About />} /> */}
+          {/* <Route exact path="/" element={ */}
+          <TextForm showAlert={showAlert} heading="Enter the text for the Analysis." mode={modeColor} />
+          {/* } /> */}
+        {/* </Routes> */}
       </div>
-    </Router>
+    {/* </Router> */}
       </>
   );
 }
